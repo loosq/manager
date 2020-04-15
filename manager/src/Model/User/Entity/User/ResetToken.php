@@ -1,6 +1,6 @@
 <?php
 
-
+namespace App\Model\User\Entity\User;
 use Webmozart\Assert\Assert;
 
 class ResetToken
@@ -14,7 +14,7 @@ class ResetToken
      */
     private $expires;
 
-    public function __constructor(string $token, \DateTimeImmutable $expires)
+    public function __construct(string $token, \DateTimeImmutable $expires)
     {
         Assert::notEmpty($token);
         $this->token = $token;
