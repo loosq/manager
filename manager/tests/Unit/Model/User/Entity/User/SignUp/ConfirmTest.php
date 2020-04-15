@@ -3,6 +3,7 @@
 
 namespace App\Tests\Unit\Model\User\Entity\User\SignUp;
 
+use App\Model\User\Entity\User\Email;
 use App\Model\User\Entity\User\User;
 use Monolog\Test\TestCase;
 use App\Model\User\Entity\User\Id;
@@ -31,9 +32,17 @@ class ConfirmTest extends TestCase
 
     public function buildSignedUpUser(): User
     {
-        return new User(
+        $user = new User(
           Id::next(),
           new \DateTimeImmutable()
         );
+
+        $user->signUpByEmail(
+            new Email('email@test.test'),
+            'hash',
+            'token'
+        );
+
+        return $user;
     }
 }

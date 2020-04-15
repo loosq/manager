@@ -15,7 +15,7 @@ class Network
     /**
      * @var User
      */
-    private $User;
+    private $user;
     /**
      * @var string
      */
@@ -25,7 +25,7 @@ class Network
      */
     private $identity;
 
-    public function __constructor(User $user, string $network, string $identity)
+    public function __construct(User $user, string $network, string $identity)
     {
         $this->id = Uuid::uuid4()->toString();
         $this->user = $user;

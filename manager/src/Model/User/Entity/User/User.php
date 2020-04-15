@@ -4,7 +4,6 @@
 namespace App\Model\User\Entity\User;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use ResetToken;
 
 class User
 {
@@ -89,7 +88,9 @@ class User
                 throw new \DomainException('Network is already attached.');
             }
         }
-        $this->networks->add(new Network($this, $network, $identity));
+//        var_dump(new Network($this, $network, $identity));
+//        die;
+        $this->networks->add(new Network($user = $this, $network, $identity));
     }
 
     public function requestPasswordReset(ResetToken $token, \DateTimeImmutable $date): void
